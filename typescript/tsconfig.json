@@ -1,0 +1,18 @@
+{
+	"files": [
+		"index.d.ts",
+		"inspector.d.ts"
+	],
+    "compilerOptions": {
+        "outDir": "./build",
+        "allowJs": true,
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "types": []
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    
+}
