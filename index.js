@@ -33,22 +33,41 @@ httpsServer.listen(5000, () => {
 //Instantiate handlers
 let router = {};
 
+// Determine method and call proper handler
 router.hello = function(data, callback) {
 	let allowedMethods = ['post', 'get', 'put', 'delete'];
 	if(allowedMethods.indexOf(data.method) > -1) {
-
+		crudHandlers[data.method](data, callback);
 	} else {
-
+		callback(405);
 	}
 };
 
-function notFound(data, callback) {
+// Different handlers to be used depending on method
+let crudHandlers = {};
+
+crudHandlers.post = function(data, callback) {
+	callback(200, {"Message": "You made a POST request to /hello. Welcome!!"});
+};
+
+crudHandlers.get = function(data, callback) {
+	callback(200, {"Message": "You made a GET request to /hello. Welcomes are only for POSTs!!"});
+};
+
+crudHandlers.put = function(data, callback) {
+	callback(200, {"Message": "You made a PUT request to /hello. Welcomes are only for POSTs!!"});
+};
+
+crudHandlers.delete = function(data, callback) {
+	callback(200, {"Message": "You made a DELETE request to /hello. Welcomes are only for POSTs!!"});
+};
+
+var notFound = function (data, callback) {
 	callback(404);
 };
 
 //Callback function used when creating either server (http & https), parses data from request and packages to be consumed by appropriate route handler, which is called
 function createServerCB(req, res) {
-	
 	// Get the url and parse it
 	let parsedUrl = url.parse(req.url, true);
 	
@@ -101,7 +120,8 @@ function createServerCB(req, res) {
 				// Return Response
 				res.setHeader('Content-Type', 'application/json');
 				res.writeHead(statusCode);
-				res.end("We Only say hello, sionara.")
+				let msg = {"Message" :"We Only welcome when people come through the right door."};
+				res.end(JSON.stringify(msg));
 			});
 		}
 
