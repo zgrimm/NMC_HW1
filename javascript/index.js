@@ -20,8 +20,8 @@ httpServer.listen(3000, () => {
 
 // Instantiate httpsServer
 const httpsServerOptions = {
-	'key' : fs.readFileSync('./https/key.pem'),
-	'cert' : fs.readFileSync('./https/cert.pem')
+	'key' : fs.readFileSync('../https/key.pem'),
+	'cert' : fs.readFileSync('../https/cert.pem')
 };
 const httpsServer = https.createServer(httpsServerOptions, createServerCB);
 

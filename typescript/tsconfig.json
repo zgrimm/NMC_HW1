@@ -1,7 +1,7 @@
 {
 	"files": [
-		"index.d.ts",
-		"inspector.d.ts"
+		"./ref/index.d.ts",
+		"./ref/inspector.d.ts"
 	],
     "compilerOptions": {
         "outDir": "./build",
