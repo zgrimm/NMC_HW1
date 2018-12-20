@@ -1,8 +1,8 @@
 export interface MethodHandler {
-	get(data: RequestData, callback: any) : void; 
-	put(data: RequestData, callback: any) : void; 
-	post(data: RequestData, callback: any) : void; 
-	delete(data: RequestData, callback: any) : void; 
+	get : HandlerCallback; 
+	put : HandlerCallback; 
+	post : HandlerCallback; 
+	delete : HandlerCallback; 
 };
 
 export interface RequestData {
@@ -11,4 +11,8 @@ export interface RequestData {
 	method : string;
 	headers : any;
 	payload : any
+};
+
+export interface HandlerCallback {
+	(data: RequestData, callback: any) : void;
 };
