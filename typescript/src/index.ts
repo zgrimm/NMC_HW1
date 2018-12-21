@@ -1,4 +1,4 @@
-/// <reference path="../ref/index.d.ts" />
+
 
 /**********************************************
 ** Entry Point for App, starts up the server **

@@ -9,7 +9,8 @@
         "target": "es5",
         "module": "commonjs",
         "moduleResolution": "node",
-        "types": []
+        "types": [],
+        "typeRoots": ["ref"],
     },
     "include": [
         "src/**/*.ts"

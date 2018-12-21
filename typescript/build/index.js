@@ -1,9 +1,8 @@
 "use strict";
-/// <reference path="../ref/index.d.ts" />
-Object.defineProperty(exports, "__esModule", { value: true });
 /**********************************************
 ** Entry Point for App, starts up the server **
 **********************************************/
+Object.defineProperty(exports, "__esModule", { value: true });
 // Dependencies
 var http = require("http");
 var https = require("https");
